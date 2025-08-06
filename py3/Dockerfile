@@ -12,3 +12,5 @@ torch \
 torchvision \
 torchaudio
 
+COPY weather/ /workspaces/sinergym/sinergym/data/weather/
+
