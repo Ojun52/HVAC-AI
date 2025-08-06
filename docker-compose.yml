@@ -21,7 +21,8 @@ services:
     volumes:
       - ./py3/root_jupyter:/root/.jupyter
       - ./workspace:/workspace
-
+    env_file:
+      - py3/.env
     environment:
       - "NVIDIA_VISIBLE_DEVICES=all"
       - "NVIDIA_DRIVER_CAPABILITIES=all"
