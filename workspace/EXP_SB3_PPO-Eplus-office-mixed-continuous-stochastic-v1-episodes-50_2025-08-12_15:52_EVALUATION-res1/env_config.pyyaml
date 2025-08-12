@@ -1,0 +1,214 @@
+!EplusEnv
+building_file: ASHRAE901_OfficeMedium_STD2019_Denver.epJSON
+weather_files:
+- JPN_Nagoya.476350_IWEC.epw
+action_space: !GymSpace
+  class: !Class 'gymnasium.spaces.box.Box'
+  arguments:
+    low: !NumpyArray
+      object:
+      - 15.0
+      - 22.5
+      dtype: numpy:float32
+    high: !NumpyArray
+      object:
+      - 22.5
+      - 30.0
+      dtype: numpy:float32
+    shape: !Tuple
+    - 2
+    dtype: numpy:float32
+time_variables:
+- month
+- day_of_month
+- hour
+variables:
+  outdoor_temperature: !Tuple
+  - Site Outdoor Air DryBulb Temperature
+  - Environment
+  outdoor_humidity: !Tuple
+  - Site Outdoor Air Relative Humidity
+  - Environment
+  wind_speed: !Tuple
+  - Site Wind Speed
+  - Environment
+  wind_direction: !Tuple
+  - Site Wind Direction
+  - Environment
+  diffuse_solar_radiation: !Tuple
+  - Site Diffuse Solar Radiation Rate per Area
+  - Environment
+  direct_solar_radiation: !Tuple
+  - Site Direct Solar Radiation Rate per Area
+  - Environment
+  htg_setpoint: !Tuple
+  - Zone Thermostat Heating Setpoint Temperature
+  - Core_bottom
+  clg_setpoint: !Tuple
+  - Zone Thermostat Cooling Setpoint Temperature
+  - Core_bottom
+  core_bottom_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Core_bottom
+  core_mid_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Core_mid
+  core_top_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Core_top
+  firstfloor_plenum_air_temperature: !Tuple
+  - Zone Air Temperature
+  - FirstFloor_Plenum
+  midfloor_plenum_air_temperature: !Tuple
+  - Zone Air Temperature
+  - MidFloor_Plenum
+  topfloor_plenum_air_temperature: !Tuple
+  - Zone Air Temperature
+  - TopFloor_Plenum
+  perimeter_bot_zn_1_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_bot_ZN_1
+  perimeter_bot_zn_2_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_bot_ZN_2
+  perimeter_bot_zn_3_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_bot_ZN_3
+  perimeter_bot_zn_4_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_bot_ZN_4
+  perimeter_mid_zn_1_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_mid_ZN_1
+  perimeter_mid_zn_2_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_mid_ZN_2
+  perimeter_mid_zn_3_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_mid_ZN_3
+  perimeter_mid_zn_4_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_mid_ZN_4
+  perimeter_top_zn_1_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_top_ZN_1
+  perimeter_top_zn_2_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_top_ZN_2
+  perimeter_top_zn_3_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_top_ZN_3
+  perimeter_top_zn_4_air_temperature: !Tuple
+  - Zone Air Temperature
+  - Perimeter_top_ZN_4
+  core_bottom_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Core_bottom
+  core_mid_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Core_mid
+  core_top_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Core_top
+  firstfloor_plenum_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - FirstFloor_Plenum
+  midfloor_plenum_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - MidFloor_Plenum
+  topfloor_plenum_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - TopFloor_Plenum
+  perimeter_bot_zn_1_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_bot_ZN_1
+  perimeter_bot_zn_2_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_bot_ZN_2
+  perimeter_bot_zn_3_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_bot_ZN_3
+  perimeter_bot_zn_4_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_bot_ZN_4
+  perimeter_mid_zn_1_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_mid_ZN_1
+  perimeter_mid_zn_2_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_mid_ZN_2
+  perimeter_mid_zn_3_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_mid_ZN_3
+  perimeter_mid_zn_4_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_mid_ZN_4
+  perimeter_top_zn_1_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_top_ZN_1
+  perimeter_top_zn_2_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_top_ZN_2
+  perimeter_top_zn_3_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_top_ZN_3
+  perimeter_top_zn_4_air_humidity: !Tuple
+  - Zone Air Relative Humidity
+  - Perimeter_top_ZN_4
+  HVAC_electricity_demand_rate: !Tuple
+  - Facility Total HVAC Electricity Demand Rate
+  - Whole Building
+meters: {}
+actuators:
+  Office_Heating_RL: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - HTGSETP_SCH_YES_OPTIMUM
+  Office_Cooling_RL: !Tuple
+  - Schedule:Compact
+  - Schedule Value
+  - CLGSETP_SCH_YES_OPTIMUM
+context: {}
+initial_context: null
+weather_variability:
+  Dry Bulb Temperature: !Tuple
+  - 1.0
+  - 0.0
+  - 24.0
+reward: !Class 'sinergym.utils.rewards.ExpReward'
+reward_kwargs:
+  energy_weight: 0.5
+  temperature_variables:
+  - perimeter_bot_zn_1_air_temperature
+  - perimeter_bot_zn_2_air_temperature
+  - perimeter_bot_zn_3_air_temperature
+  - perimeter_bot_zn_4_air_temperature
+  - perimeter_mid_zn_1_air_temperature
+  - perimeter_mid_zn_2_air_temperature
+  - perimeter_mid_zn_3_air_temperature
+  - perimeter_mid_zn_4_air_temperature
+  - perimeter_top_zn_1_air_temperature
+  - perimeter_top_zn_2_air_temperature
+  - perimeter_top_zn_3_air_temperature
+  - perimeter_top_zn_4_air_temperature
+  energy_variables:
+  - HVAC_electricity_demand_rate
+  range_comfort_winter: !Tuple
+  - 20.0
+  - 23.5
+  range_comfort_summer: !Tuple
+  - 24.0
+  - 27.0
+  lambda_energy: 0.0001
+max_ep_store: 3
+env_name: EXP_SB3_PPO-Eplus-office-mixed-continuous-stochastic-v1-episodes-50_2025-08-12_15:52_EVALUATION
+building_config:
+  timesteps_per_hour: 6
+  runperiod: !Tuple
+  - 1
+  - 7
+  - 2024
+  - 31
+  - 7
+  - 2024
+seed: null
