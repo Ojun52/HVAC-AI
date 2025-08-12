@@ -7,10 +7,7 @@ ENV TZ=Asia/Tokyo
 RUN python3 -m pip install --upgrade pip \
 && pip install --no-cache-dir \
 jupyterlab \
-jupyterlab_code_formatter \
-torch \
-torchvision \
-torchaudio
+jupyterlab_code_formatter
 
 COPY weather/ /workspaces/sinergym/sinergym/data/weather/
 
